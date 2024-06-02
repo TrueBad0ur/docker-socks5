@@ -53,6 +53,18 @@
    
    1. **iOS**: Settings - Data and Storage - Use Proxy
    2. **Desktop**: Settings - Privacy and Security - Use Proxy
+  
+   Для docker:
+
+   1. `mkdir -p /etc/systemd/system/docker.service.d`
+   2. /etc/systemd/system/docker.service.d/proxy.conf -
+     ```
+     [Service]
+     Environment="HTTP_PROXY=socks5://127.0.0.1:8080"
+     Environment="HTTPS_PROXY=socks5://127.0.0.1:8080"
+     ```
+   3. `systemctl daemon-reload`
+   4. `systemctl restart docker`
    
 ## Беслатный сервер на Amazon [AWS](https://aws.amazon.com)
 
